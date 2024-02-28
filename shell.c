@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
 	char *input = NULL;
 	char **prompt = NULL;
-	int status = 0;
+	int status = 0, idx = 0;
 	(void)argc;
 
 	while (1)
@@ -24,11 +24,12 @@ int main(int argc, char *argv[])
 				me_printf("\n");
 			return (status);
 		}
+		idx++;
 		prompt = strtkn(input);
 
 		if (prompt == NULL)
 			continue;
-		status = _execute(prompt, argv);
+		status = _execute(prompt, argv, idx);
 	}
 
 	return (0);

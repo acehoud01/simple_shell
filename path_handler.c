@@ -7,12 +7,27 @@
  * Return: 0
  */
 
-char *get_path(char *command)
+char *_getpath(char *command)
 {
 	char *env, *dir, *fl_cmd;
 	struct stat state;
+	int i;
+	
+	for (i  = 0; command[i]; i++)
+	{
+		if (command[i] == '/')
+		{
+			if (stat(command, &state) == 0)
+				return (_strdup(command));
+			
+			return (NULL);
+		}
+	}
 
 	env = get_env("PATH");
+	if (!env)
+		return (NULL);
+
 	dir = strtok(env, ":");
 
 	while (dir)
@@ -38,16 +53,4 @@ char *get_path(char *command)
 	free(env);
 	return (NULL);
 
-}
-
-int main(int ac, char **av)
-{
-	char *fl_cmd;
-	
-	fl_cmd = get_path(av[1]);
-
-	if (fl_cmd)
-		printf("%s\n", fl_cmd);
-	else
-		printf("doesnt exist");
 }
