@@ -12,7 +12,7 @@ int _execute(char **command, char **argv, int idx)
 {
 	char *fl_cmd;
 	pid_t id;
-	int status;
+	int status = 0;
 
 	fl_cmd = _getpath(command[0]);
 
@@ -24,19 +24,28 @@ int _execute(char **command, char **argv, int idx)
 	}
 
 	id = fork();
+	if (id == -1)
+	{
+		perror("fork");
+		exit(EXIT_FAILURE);
+	}
 	if (id == 0)
 	{
-		if (execve(fl_cmd, command, environ) == -1)
+		perror("execve");
+		exit(EXIT_FAILURE);
+		/*if (execve(fl_cmd, command, environ) == -1)
 		{
 			free(fl_cmd), fl_cmd = NULL;
 			array_tools(command);
-		}
+		}*/
 	}
 	else
 	{
 		waitpid(id, &status, 0);
 		array_tools(command);
 		free(fl_cmd), fl_cmd = NULL;
+		return (WEXITSTATUS(status));
 	}
-	return (WEXITSTATUS(status));
+	/*return (WEXITSTATUS(status));*/
+	return (1);
 }

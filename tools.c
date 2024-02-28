@@ -20,7 +20,8 @@ void array_tools(char **arr)
 		arr[i] = NULL;
 	}
 
-	free(arr), arr = NULL;
+	free(arr);
+	arr = NULL;
 }
 
 /**
