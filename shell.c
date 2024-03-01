@@ -8,7 +8,7 @@
  * Return: 0
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	char *input = NULL;
 	char **prompt = NULL;
@@ -21,12 +21,12 @@ int main(int argc, char *argv[])
 		if (input == NULL)
 		{
 			if (isatty(STDIN_FILENO))
-				me_printf("\n");
+				write(STDOUT, "\n", 1);
 			return (status);
 		}
 		prompt = strtkn(input);
 
-		if (prompt == NULL)
+		if (!prompt)2
 			continue;
 		status = _execute(prompt, argv);
 	}
