@@ -20,6 +20,7 @@ int _execute(char **command, char **argv)
 		{
 			perror(argv[0]);
 			array_tools(command);
+			exit(0);
 		}
 	}
 	else
