@@ -12,7 +12,7 @@ char *get_env(char *name)
 	int i;
 	char *tmp, *var, *value, *env;
 
-	for (i = 0; env[i]; i++)
+	for (i = 0; environ[i]; i++)
 	{
 		tmp = _strdup(environ[i]);
 		var = strtok(tmp, "=");
@@ -21,7 +21,7 @@ char *get_env(char *name)
 			value = strtok(NULL, "\n");
 			env = _strdup(value);
 			free(tmp);
-			return (env);
+			return (value);
 		}
 		free(tmp), tmp = NULL;
 	}
