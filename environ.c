@@ -3,7 +3,7 @@
 /**
  * get_env - function prototype
  *
- * @variable: my environments
+ * @name: my environments
  * Return: 0
  */
 
