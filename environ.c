@@ -9,21 +9,21 @@
 
 char *get_env(char *name)
 {
-	char *key, *tmp, *env;
-	int i;
+        int i;
+        char *tmp, *var, *value, *env;
 
-	for (i = 0; environ[i]; i++)
-	{
-		tmp = _strdup(environ[i]);
-		key = strtok(tmp, "=");
-		if (_strcmp(key, name) == 0)
-		{
-			env = _strdup(strtok(NULL, "\n"));
-			free(tmp);
-			return (env);
-		}
-		free(tmp);
-	}
-
-	return (NULL);
-}
+        for (i = 0; environ[i]; i++)
+        {
+                tmp = _strdup(environ[i]);
+                var = strtok(tmp, "=");
+                if (_strcmp(var, name) == 0)
+                {
+                        value = strtok(NULL, "\n");
+                        env = _strdup(value);
+                        free(tmp);
+                        return (env);
+                }
+                free(tmp), tmp = NULL;
+        }
+        return (NULL);
+} 

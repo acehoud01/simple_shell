@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 			continue;
 		
 		if (is_builtin(prompt[0]))
-			handle_builtin(prompt, argv, status, idx);
+			handle_builtin(prompt, argv, &status, idx);
 		status = _execute(prompt, argv, idx);
 	}
 
