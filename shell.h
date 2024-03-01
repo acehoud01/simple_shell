@@ -21,6 +21,7 @@ char **strtkn(char *line);
 int _execute(char **command, char **argv, int idx);
 void array_tools(char **arr);
 char *get_env(char *name);
+void print_error(char *name, int idx, char *cmd);
 
 char *_strdup(const char *str);
 int _strcmp(char *s1, char *s2);
@@ -33,5 +34,11 @@ int is_builtin(char *command);
 void handle_builtin(char **command, char **argv, int *status, int idx);
 void exit_shell(char **command, int *status);
 void print_env(char **command, int *status);
+
+void reverse_string(char *str, int len);
+int _atoi(char *str);
+char *_itoa(int n);
+char *get_path(char *command);
+
 
 #endif

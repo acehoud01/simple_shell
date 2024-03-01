@@ -37,16 +37,16 @@ char **strtkn(char *line)
 	if (cmd == NULL)
 	{
 		free(line), line = NULL;
+		free(tmp), tmp = NULL;
 		return (NULL);
 	}
 	tkn = strtok(line, DELIM);
 	while (tkn)
 	{
-		cmd[i] = _strdup(tkn);
+		cmd[i++] = _strdup(tkn);
 		tkn = strtok(NULL, DELIM);
-		i++;
 	}
-	free(line), line = NULL;
 	cmd[i] = NULL;
+	free(line);
 	return (cmd);
 }

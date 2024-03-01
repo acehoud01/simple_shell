@@ -22,3 +22,27 @@ void array_tools(char **arr)
 
 	free(arr), arr = NULL;
 }
+
+/**
+ * print_error - function that print error
+ *
+ * @name: the name of shell
+ * @idx: command index
+ * @cmd: command
+ * Return: nothing
+ */
+
+void print_error(char *name, int idx, char *cmd)
+{
+	char *index, msg[] = ": not found\n";
+
+	index = _itoa(idx);
+
+	me_printf(name);
+	me_printf(": ");
+	me_printf(index);
+	me_printf(": ");
+	me_printf(cmd);
+	me_printf(msg);
+	free(index);
+}
