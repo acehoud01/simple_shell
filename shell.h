@@ -12,6 +12,7 @@
 #include <unistd.h>
 
 #define DELIM " \t\n"
+#define PROMPT "$ "
 extern char **environ;
 
 char *read_line(void);

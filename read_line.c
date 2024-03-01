@@ -13,7 +13,7 @@ char *read_line(void)
 	ssize_t size;
 
 	if (isatty(STDIN_FILENO))
-		me_printf("$ ");
+		me_printf(PROMPT);
 	size = getline(&line, &len, stdin);
 
 	if (size == -1)
