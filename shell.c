@@ -26,7 +26,7 @@ int main(int argc, char **argv)
 		}
 		prompt = strtkn(input);
 
-		if (!prompt)2
+		if (!prompt)
 			continue;
 		status = _execute(prompt, argv);
 	}
