@@ -30,6 +30,8 @@ int is_builtin(char *command)
  * handle_builtin - funtion to handle built in
  *
  * @command: command passed
+ * @argv: arguments
+ * @idx: index
  * Return: nothing
  */
 
