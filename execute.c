@@ -8,10 +8,11 @@
  * Return: 0
  */
 
-int _execute(char **command, char **argv)
+int _execute(char **command, char **argv, int idx)
 {
 	pid_t id;
 	int status;
+	(void)idx;
 
 	id = fork();
 	if (id == 0)

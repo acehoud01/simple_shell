@@ -17,7 +17,7 @@ extern char **environ;
 char *read_line(void);
 void me_printf(const char *output);
 char **strtkn(char *line);
-int _execute(char **command, char **argv);
+int _execute(char **command, char **argv, int idx);
 void array_tools(char **arr);
 char *get_env(char *name);
 
@@ -26,5 +26,11 @@ int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
 int _strlen(char *s);
+
+
+int is_builtin(char *command);
+void handle_builtin(char **command, char **argv, int status, int idx);
+void exit_shell(char **command, int status);
+void print_env(char **command, int status);
 
 #endif
