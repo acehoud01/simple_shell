@@ -31,6 +31,7 @@ int is_builtin(char *command)
  *
  * @command: command passed
  * @argv: arguments
+ * @status: cmd status
  * @idx: index
  * Return: nothing
  */
