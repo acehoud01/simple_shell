@@ -29,7 +29,10 @@ int is_builtin(char *command)
 /**
  * handle_builtin - funtion to handle built in
  *
+ * @argv: arguments
  * @command: command passed
+ * @status: cmd status
+ * @idx: index
  * Return: nothing
  */
 

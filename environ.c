@@ -9,7 +9,7 @@
 
 char *get_env(char *name)
 {
-        char *key, *tmp, *env;
+	char *key, *tmp, *env;
 	int i;
 
 	for (i = 0; environ[i]; i++)
@@ -26,4 +26,4 @@ char *get_env(char *name)
 	}
 
 	return (NULL);
-} 
+}
