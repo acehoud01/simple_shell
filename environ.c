@@ -21,7 +21,7 @@ char *get_env(char *name)
 			value = strtok(NULL, "\n");
 			env = _strdup(value);
 			free(tmp);
-			return (value);
+			return (env);
 		}
 		free(tmp), tmp = NULL;
 	}
