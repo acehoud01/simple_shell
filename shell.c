@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 		if (input == NULL)
 		{
 			if (isatty(STDIN_FILENO))
-				write(STDOUT_FILENO, "\n", 1);
+				me_printf("\n");
 			return (status);
 		}
 		prompt = strtkn(input);
