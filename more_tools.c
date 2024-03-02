@@ -53,7 +53,7 @@ char *_itoa(int n)
 
 /**
  * print_error - a function that prints command not found error
- * 
+ *
  * @name: shell name
  * @idx: the command index
  * @cmd: the command
