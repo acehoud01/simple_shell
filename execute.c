@@ -13,17 +13,7 @@ int _execute(char **command, char **argv, int idx)
 {
 	pid_t id;
 	int status;
-	char *cmd;
 	(void)idx;
-
-	cmd = get_path(command[0]);
-
-	if (!cmd)
-	{
-		perror("Command does not exist");
-		array_tools(command);
-		exit(EXIT_FAILURE);
-	}
 
 	id = fork();
 	if (id == 0)
