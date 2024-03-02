@@ -14,14 +14,15 @@ int _execute(char **command, char **argv, int idx)
 	pid_t id;
 	int status;
 	char *cmd;
+	(void)idx;
 
 	cmd = get_path(command[0]);
 
 	if (!cmd)
 	{
-		print_error(argv[0], idx, command[0]);
+		perror("Command does not exist");
 		array_tools(command);
-		return (127);
+		exit(EXIT_FAILURE);
 	}
 
 	id = fork();
