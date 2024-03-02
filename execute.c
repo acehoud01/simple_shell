@@ -13,7 +13,16 @@ int _execute(char **command, char **argv, int idx)
 {
 	pid_t id;
 	int status;
-	(void)idx;
+	char *cmd;
+
+	cmd = get_path(command[0]);
+
+	if (!cmd)
+	{
+		print_error(argv[0], idx, command[0]);
+		array_tools(command);
+		return (127);
+	}
 
 	id = fork();
 	if (id == 0)
